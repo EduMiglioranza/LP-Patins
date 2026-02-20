@@ -4,6 +4,11 @@
     padding: 2.5rem 2rem;
     margin-inline: auto;
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+
     & h1 div{
         display: inline-block; /* Garda propriedades do block para definir altura e largura, mas nos permite coloca-lo na mesma linha do texto. */
         overflow: hidden;
@@ -14,7 +19,7 @@
 
     & h1 span{
         display: block;
-        animation: slideUp 6s infinite ease;
+        animation: slideUp 6s 2s infinite ease;
     }
 
     & h1 span:nth-child(1), h1 span:nth-child(4){
@@ -32,47 +37,117 @@
         display: flex;
         gap: 2rem;
         margin-top: 3rem;
-    }
 
-    & .button{
-        display: flex;
-        align-items: center;
-        gap: .75rem;
-
-        border-radius: 5rem;
-        transition: scale 350ms;
-
-        /* buy é atrelado a button, não colocar espaço. */
-        &.buy {
-            padding: 1.5rem 3rem;
-            background-color: var(--snitap-sun);
-        }
-
-        &.play span{
-            padding: 1.5rem;
-            border-radius: 50%;
-            background-color: white;
+        & .button{
             display: flex;
+            align-items: center;
+            gap: .75rem;
+    
+            border-radius: 5rem;
+            transition: scale 350ms;
+    
+            /* buy é atrelado a button, não colocar espaço. */
+            &.buy {
+                padding: 1.5rem 3rem;
+                background-color: var(--snitap-sun);
+            }
+    
+            &.play span{
+                padding: 1.5rem;
+                border-radius: 50%;
+                background-color: white;
+                display: flex;
+            }
+    
+            &.shadow, .shadow{
+                box-shadow: 
+                0 2px 5px rgb(0 0 0 / .1),
+                0 9px 9px rgb(0 0 0 / .09),
+                0 20px 12px rgb(0 0 0 / .05),
+                0 36px 15px rgb(0 0 0 / .01)
+                ;
+            }
+    
+            &:hover {
+                scale: 1.1;
+            }
+    
+            
         }
-
-        &.shadow, .shadow{
-            box-shadow: 
-            0 2px 5px rgb(0 0 0 / .1),
-            0 9px 9px rgb(0 0 0 / .09),
-            0 20px 12px rgb(0 0 0 / .05),
-            0 36px 15px rgb(0 0 0 / .01)
-            ;
-        }
-
-        &:hover {
-            scale: 1.1;
-        }
-
-        
     }
 
+    /* Patins */
+    &>div:nth-child(2){
+        display: block;
+        width: 100%;
+        max-width: 30.5rem;
+        height: 30.5rem;
+
+        & .content{
+            /* Certificando que a animação vai ficar contina nesta caixa.*/
+            width: 100%; 
+            height: 100%;
+            position: relative;
+        }
+
+        & img {
+            position: absolute;
+            width: 100%;
+        }
+
+        & img[src*="ellipse"] {
+            width: 94%;
+            top: 3%;
+            left: 3%;
+
+            transform: translateX(200%);
+            animation: slideIn 3s 200ms ease forwards;
+        }
+
+        & img[src*="patins"] {
+            z-index: 1;
+
+            transform: translateX(200%);
+            animation: slideIn 3s ease forwards;
+        }
+
+        & img[src*="stars-1"] {
+            max-width: 5.5rem;
+            top: 30%;
+            z-index: 0;
+
+            opacity: 0;
+            transform: translateX(400%);
+            animation: slideIn 2s 800ms ease forwards, appear 100ms 800ms forwards;
+        }
+
+        & img[src*="stars-2"] {
+            max-width: 2.5rem;
+            right: 0;
+            bottom: 35%;
+
+            transform: translateX(400%);
+            animation: slideIn 2.2s 800ms ease forwards, appear 100ms 800ms forwards;
+        }
+    }
 }
 
+@keyframes slideIn {
+    50% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes appear {
+    /* Com um so uso o to faz mais sentido que o 100% */
+    to { 
+        opacity: 1;
+    }
+}
 
 
 
