@@ -1,7 +1,7 @@
 #hero{
     max-width: 80rem;
     width: 100%;
-    padding: 2.5rem 2rem;
+    padding: 2.5rem var(--px);
     margin-inline: auto;
 
     display: flex;
@@ -149,10 +149,6 @@
     }
 }
 
-
-
-
-
 /* Criando a timeline da animação das letras */
 @keyframes slideUp { 
     /* radical static */
@@ -227,4 +223,129 @@
     }
 
     /* Sensação de infinito pois o ultimo não pedimos para se mover, e como ele é igual ao primeiro, parece que so recomeçamos. Na verdade ele transiciona do primeiro ao 3° mas do 3° ao 4° ele so corta */
+}
+
+@media (width < 80em) {
+    #hero{
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+        gap: 2rem;
+
+        flex-direction: column-reverse;
+        justify-content: initial;
+
+        &>div:nth-child(2){
+            max-height: 19.5rem;
+
+            & img[src*="patins"] {
+                width: 95%;
+            }
+
+            & img[src*="stars-1"] {
+                top: 15%;
+            }
+    
+            & img[src*="stars-2"] {
+                right: 0;
+                bottom: 50%;
+            }
+
+        }
+
+        & .buttons{
+            gap: 1.5rem;
+            flex-direction: column-reverse;
+            align-items: start;
+        }
+
+        & h1{
+            position: relative;
+        }
+
+        & h1 div{
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            height: 2.5rem;
+
+            position: absolute;
+            bottom: 0;
+            right: 20%;
+        }
+    
+    }
+
+    @keyframes slideUp { 
+        /* radical static */
+            0%, 22% {
+                transform: translateY(0);
+            }
+            
+            /* divertida in */
+            23% {
+                transform: translateY(calc(-5rem - 15px));
+            }
+
+            25% {
+                transform: translateY(calc(-5rem + 10px));
+            }
+
+            27% {
+                transform: translateY(calc(-5rem - 5px));
+            }
+
+            29% {
+                transform: translateY(calc(-5rem + 5px));
+            }
+            
+            /* divertida static */
+            33%, 55% {
+                transform: translateY(-5rem);
+            }
+
+            /* saudavel in */
+            56% {
+                transform: translateY(calc(-10rem - 15px));
+            }
+
+            58% {
+                transform: translateY(calc(-10rem + 10px));
+            }
+
+            60% {
+                transform: translateY(calc(-10rem - 5px));
+            }
+
+            62% {
+                transform: translateY(calc(-10rem + 5px));
+            }
+
+            /* saudavel static */
+            66%, 88% {
+                transform: translateY(-10rem);
+            }
+
+            /* radical in */
+            89% {
+                transform: translateY(calc(-15rem - 15px));
+            }
+
+            91% {
+                transform: translateY(calc(-15rem + 10px));
+            }
+
+            93% {
+                transform: translateY(calc(-15rem - 5px));
+            }
+
+            95% {
+                transform: translateY(calc(-15rem + 5px));
+            }
+
+            /* radical static */
+            100% {
+                transform: translateY(-15rem);
+            
+            }
+    }
 }

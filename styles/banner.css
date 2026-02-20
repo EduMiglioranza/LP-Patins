@@ -23,7 +23,7 @@
             var(--snitap-joy-light)
         );
 
-        background-size: 400%;
+        background-size: 600%;
         background-position: 0% 50%;
 
         animation: bg-gradient 20s ease infinite;

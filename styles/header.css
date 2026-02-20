@@ -1,6 +1,6 @@
 header.top{
     max-width: 80rem;
-    padding: .75rem 2rem;
+    padding: .75rem var(--px);
     margin-inline: auto;
     width: 100%;
 
@@ -42,5 +42,11 @@ header.top{
         justify-content: center;
         border-radius: 50%;
 
+    }
+}
+
+@media (width < 80em) {
+    header.top{
+        padding-inline: .75rem;
     }
 }
