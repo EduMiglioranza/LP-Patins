@@ -113,3 +113,25 @@
         transform: translateY(100%);
     }
 }
+
+@media (width < 80em) {
+    .gallery {
+        padding-block: 1.5rem;
+
+        & figure > img {
+            max-height: 16rem;
+        }
+
+        & .content{
+            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            "A"
+            "B"
+            "C"
+            "D";
+
+            
+        }
+    }
+}
